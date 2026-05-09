@@ -1,0 +1,60 @@
+<!-- MathJax 3 설정 -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      tags: 'ams'
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+</script>
+
+<!-- 언어 선택기 (Google Translate) -->
+<script>
+  // 1. 번역 초기화 함수 (Google Translate 스크립트가 로드된 후 자동 호출)
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'ko',
+      includedLanguages: 'ko,en,ja,zh-CN,es,fr,de',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+
+  // 2. DOM이 준비된 후: div 생성 → 스크립트 로드 순서를 보장
+  document.addEventListener('DOMContentLoaded', function () {
+    // 번역 위젯 컨테이너 생성
+    var div = document.createElement('div');
+    div.id = 'google_translate_element';
+    div.style.cssText =
+      'position:fixed;bottom:24px;right:24px;z-index:9999;' +
+      'background:#fff;border-radius:10px;padding:6px 10px;' +
+      'box-shadow:0 2px 12px rgba(0,0,0,0.18);font-size:13px;';
+    document.body.appendChild(div);
+
+    // div가 생긴 뒤 Google Translate 스크립트 로드
+    var script = document.createElement('script');
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.head.appendChild(script);
+  });
+</script>
+
+<style>
+  /* Google Translate 상단 배너 숨기기 */
+  .goog-te-banner-frame.skiptranslate { display: none !important; }
+  body { top: 0 !important; }
+
+  /* 드롭다운 스타일 */
+  #google_translate_element select {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+  }
+</style>
