@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-
 gem "jekyll", "~> 4.3"
 
 # al-folio 전용 플러그인
@@ -12,13 +11,10 @@ group :jekyll_plugins do
   gem "jekyll-scholar"
   gem "jekyll-sitemap"
   gem "jekyll-toc"
-  gem "jekyll-scholar"
-  gem "jekyll-sitemap"
-  gem "jekyll-toc"
 end
 
 # 개발 편의
-gem "webrick"       # Ruby 3.x에서 로컬 서버 실행 시 필요
+gem "webrick"
 gem "csv"
 gem "base64"
 
