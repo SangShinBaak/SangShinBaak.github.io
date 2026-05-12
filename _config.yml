@@ -29,7 +29,7 @@ github_username: ""    # GitHub 아이디
 # --- 테마 ---
 # al-folio를 fork한 뒤 사용하는 것이 기본이지만,
 # remote_theme으로도 사용 가능
-remote_theme: alshedivat/al-folio
+# remote_theme: alshedivat/al-folio
 
 # 라이트/다크 모드 코드 하이라이팅 테마
 repo_theme_light: default
