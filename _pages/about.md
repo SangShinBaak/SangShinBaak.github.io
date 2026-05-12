@@ -20,7 +20,7 @@ social: true
 ---
 
 
-I am a theoretical physicist researching analogue gravity.\ 
+I am a theoretical physicist researching analogue gravity. <br>
 My main research topic is the backreaction effect in analogue gravity.
 
 
