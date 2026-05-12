@@ -12,6 +12,9 @@ group :jekyll_plugins do
   gem "jekyll-scholar"
   gem "jekyll-sitemap"
   gem "jekyll-toc"
+  gem "jekyll-scholar"
+  gem "jekyll-sitemap"
+  gem "jekyll-toc"
 end
 
 # 개발 편의
