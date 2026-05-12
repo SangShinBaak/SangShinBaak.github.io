@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "슈뢰딩거 방정식: 유도와 해석"
+title: "(sample)슈뢰딩거 방정식: 유도와 해석"
 date: 2026-05-08 12:00:00 +0900
 description: 양자역학의 핵심 방정식인 슈뢰딩거 방정식을 유도하고, 그 물리적 의미를 살펴봅니다.
 tags: [quantum-mechanics, wave-function, operators]

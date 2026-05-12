@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[논문 리뷰] BCS Theory of Superconductivity (1957)"
+title: "[논문 리뷰] (Sample)BCS Theory of Superconductivity (1957)"
 date: 2026-05-08 14:00:00 +0900
 description: Bardeen, Cooper, Schrieffer의 초전도 이론 논문을 읽고 핵심 아이디어를 정리했습니다.
 tags: [superconductivity, condensed-matter, BCS, Cooper-pair]
