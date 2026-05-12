@@ -15,43 +15,146 @@
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js"></script>
 
 <style>
-  /* Google Translate 상단 배너 숨기기 */
+  /* Google Translate 배너 완전 숨기기 */
   .goog-te-banner-frame.skiptranslate { display: none !important; }
+  .skiptranslate { display: none !important; }
   body { top: 0 !important; }
-  #google_translate_element select {
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 4px 8px;
-    font-size: 13px;
+
+  /* 지구본 번역 버튼 */
+  #translate-globe-btn {
+    position: fixed;
+    top: 0.9rem;
+    right: 5.5rem;
+    z-index: 10000;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    outline: none;
+    padding: 4px;
+    color: var(--global-text-color, #333);
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.15s;
+    line-height: 1;
   }
+  #translate-globe-btn:hover { opacity: 1; transform: scale(1.1); }
+
+  /* 언어 드롭다운 */
+  #translate-dropdown {
+    position: fixed;
+    top: 3rem;
+    right: 4rem;
+    z-index: 10000;
+    background: var(--global-bg-color, #fff);
+    border: 1px solid var(--global-divider-color, #ddd);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 60px;
+  }
+  #translate-dropdown.open { display: flex; }
+
+  .lang-option {
+    padding: 7px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--global-text-color, #333);
+    text-align: center;
+    transition: background 0.12s;
+  }
+  .lang-option:hover { background: var(--global-hover-color, rgba(0,0,0,0.07)); }
+  .lang-option.active { color: var(--global-theme-color, #0076df); }
+
+  /* Google Translate 원본 위젯 숨김 */
+  #google_translate_element { display: none !important; }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    /* ── Google Translate ── */
+    /* ── 숨김 Google Translate 위젯 ── */
     var translateDiv = document.createElement('div');
     translateDiv.id = 'google_translate_element';
-    translateDiv.style.cssText =
-      'position:fixed;bottom:24px;right:24px;z-index:9999;' +
-      'background:#fff;border-radius:10px;padding:6px 10px;' +
-      'box-shadow:0 2px 12px rgba(0,0,0,0.18);font-size:13px;';
     document.body.appendChild(translateDiv);
 
+    /* ── 지구본 버튼 생성 ── */
+    var globeBtn = document.createElement('button');
+    globeBtn.id = 'translate-globe-btn';
+    globeBtn.title = 'Translate';
+    globeBtn.setAttribute('aria-label', 'Translate');
+    globeBtn.innerHTML =
+      '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" ' +
+      'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<circle cx="12" cy="12" r="10"/>' +
+      '<line x1="2" y1="12" x2="22" y2="12"/>' +
+      '<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>' +
+      '</svg>';
+    document.body.appendChild(globeBtn);
+
+    /* ── 언어 드롭다운 생성 ── */
+    var dropdown = document.createElement('div');
+    dropdown.id = 'translate-dropdown';
+
+    var langs = [
+      { code: 'ko', label: 'KR' },
+      { code: 'en', label: 'EN' },
+      { code: 'es', label: 'ES' },
+      { code: 'ja', label: 'JA' },
+      { code: 'zh-CN', label: 'ZH' },
+      { code: 'fr', label: 'FR' },
+      { code: 'de', label: 'DE' },
+    ];
+
+    langs.forEach(function (lang) {
+      var opt = document.createElement('button');
+      opt.className = 'lang-option';
+      opt.textContent = lang.label;
+      opt.addEventListener('click', function () {
+        translatePage(lang.code);
+        dropdown.classList.remove('open');
+        /* 활성 언어 표시 */
+        document.querySelectorAll('.lang-option').forEach(function(b){ b.classList.remove('active'); });
+        opt.classList.add('active');
+      });
+      dropdown.appendChild(opt);
+    });
+    document.body.appendChild(dropdown);
+
+    /* ── 드롭다운 토글 ── */
+    globeBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      dropdown.classList.toggle('open');
+    });
+    document.addEventListener('click', function () {
+      dropdown.classList.remove('open');
+    });
+
+    /* ── Google Translate 스크립트 로드 ── */
     var gtScript = document.createElement('script');
     gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     document.head.appendChild(gtScript);
   });
-</script>
 
-<script>
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'ko',
       includedLanguages: 'ko,en,ja,zh-CN,es,fr,de',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false
     }, 'google_translate_element');
+  }
+
+  function translatePage(lang) {
+    /* Google Translate 숨김 select에 언어 적용 */
+    var sel = document.querySelector('.goog-te-combo');
+    if (sel) {
+      sel.value = lang;
+      sel.dispatchEvent(new Event('change'));
+    } else {
+      /* 위젯이 아직 로드 안 됐으면 0.5초 후 재시도 */
+      setTimeout(function () { translatePage(lang); }, 500);
+    }
   }
 </script>
