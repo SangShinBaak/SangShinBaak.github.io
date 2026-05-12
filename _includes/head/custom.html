@@ -20,52 +20,59 @@
   .skiptranslate { display: none !important; }
   body { top: 0 !important; }
 
-  /* 지구본 번역 버튼 */
+  /* 지구본 번역 버튼 — 내비게이션 바 바로 아래 오른쪽 */
   #translate-globe-btn {
     position: fixed;
-    top: 0.9rem;
-    right: 5.5rem;
-    z-index: 10000;
+    top: 3.8rem;
+    right: 1rem;
+    z-index: 9999;
     background: transparent;
     border: none;
+    border-radius: 50%;
     cursor: pointer;
     padding: 4px;
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--global-text-color, #333);
-    opacity: 0.6;
+    opacity: 0.55;
     transition: opacity 0.2s, transform 0.15s;
-    line-height: 1;
   }
-  #translate-globe-btn:hover { opacity: 1; transform: scale(1.1); }
+  #translate-globe-btn:hover { opacity: 1; transform: scale(1.12); }
 
-  /* 언어 드롭다운 */
+  /* 언어 목록 — 버튼 왼쪽으로 가로 펼침 */
   #translate-dropdown {
     position: fixed;
-    top: 3rem;
-    right: 4rem;
-    z-index: 10000;
+    top: 3.8rem;
+    right: 2.9rem;
+    z-index: 9999;
     background: var(--global-bg-color, #fff);
     border: 1px solid var(--global-divider-color, #ddd);
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.13);
     display: none;
-    flex-direction: column;
+    flex-direction: row;
     overflow: hidden;
-    min-width: 60px;
   }
   #translate-dropdown.open { display: flex; }
 
   .lang-option {
-    padding: 7px 18px;
-    font-size: 12px;
+    padding: 5px 10px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     background: transparent;
     border: none;
+    border-right: 1px solid var(--global-divider-color, #eee);
     cursor: pointer;
     color: var(--global-text-color, #333);
     text-align: center;
     transition: background 0.12s;
+    white-space: nowrap;
   }
+  .lang-option:last-child { border-right: none; }
   .lang-option:hover { background: var(--global-hover-color, rgba(0,0,0,0.07)); }
   .lang-option.active { color: var(--global-theme-color, #0076df); }
 
