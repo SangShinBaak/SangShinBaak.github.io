@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[논문 리뷰](Reading) Classical-Field Method for Time Dependent Bose-Einstein Condensed Gases (2001)"
-date: 2026-05-30 14:00:00 +0900
+date: 2026-06-01 14:00:00 +0900
 description: TWA와 관련된 논문을 읽는중입니다.
 tags: [Truncated Wigner Approximation, BEC, NCB, Thermal Equilibrium]
 categories: papers
@@ -25,7 +25,17 @@ toc:
 어떻게 **NCB**안에서 Wigner distribution을 샘플링하는 *random classical fields*를 얻을 수 있는지 알려준다.
 
 특징:
-    - *time-independent*인 경우에는 NCB와 완전히 동등.
-    - *time-dependent*인 경우에는 Bogoliubov approach와는 다르게, classical field evolution이 condensate 및 noncondensate 모두 *nonlinear*하기 때문에, 더 긴 시간동안 적용 가능하다.
+ - *time-independent*인 경우에는 NCB와 완전히 동등.
+ - *time-dependent*인 경우에는 Bogoliubov approach와는 다르게, classical field evolution이 condensate 및 noncondensate 모두 *nonlinear*하기 때문에, 더 긴 시간동안 적용 가능하다.
 
 ## 논문 내용
+### NCB
+#### Field operator를 condensate와 orthogonal part로 쪼개기
+일단 Bose-gas의 (normalised) field operator를 다음과 같이 써준다:  
+$$ \hat{\Psi}(\vec{r}) = \phi(\vec{r})\hat{a}_\phi+\hat{\psi}(\vec{r}). $$
+
+여기서 condensate annihilation operator $\hat{a}_\phi$를 *condensate phase operator* $A_\phi$와 condensate number operator $\hat{N}_0$를 이용해 표현한다:
+
+$$ \hat{a}_\phi = \hat{A}_\phi\hat{N}_0^{1/2}$$
+
+
