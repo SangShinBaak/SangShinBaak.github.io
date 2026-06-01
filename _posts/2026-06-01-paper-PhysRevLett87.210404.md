@@ -36,8 +36,9 @@ toc:
 
 $$ \hat{\Psi}(\vec{r}) = \phi(\vec{r})\hat{a}_\phi+\hat{\psi}(\vec{r}). $$
 
-여기서 condensate annihilation operator $\hat{a}_\phi$를 *condensate phase operator* $A_\phi$와 condensate number operator $\hat{N}_0$를 이용해 표현한다:
+여기서 condensate annihilation operator \(\hat{a}_\phi\) 를 *condensate phase operator* \(\hat{A}_\phi\)와 condensate number operator \(\hat{N}_0\)를 이용해 표현한다:
 
 $$ \hat{a}_\phi = \hat{A}_\phi\hat{N}_0^{1/2}$$
 
-
+condensate phase operator는 **거의 unitary**이다:
+$$ \hat{A}_\phi^\dagger\hat{A}_\phi = \hat{A}_\phi^\dagger\hat{A}_\phi + |0\rangle\langle0| = Id $$
