@@ -3,6 +3,7 @@ layout: post
 title: "[논문 리뷰](Reading) Classical-Field Method for Time Dependent Bose-Einstein Condensed Gases (2001)"
 date: 2026-06-01 14:00:00 +0900
 math: true
+math_engine: mathjax
 description: TWA와 관련된 논문을 읽는중입니다.
 tags: [Truncated Wigner Approximation, BEC, NCB, Thermal Equilibrium]
 categories: papers
@@ -36,7 +37,7 @@ toc:
 
 $$ \hat{\Psi}(\vec{r}) = \phi(\vec{r})\hat{a}_\phi+\hat{\psi}(\vec{r}). $$
 
-여기서 condensate annihilation operator \(\hat{a}_\phi\) 를 *condensate phase operator* \(\hat{A}_\phi\)와 condensate number operator \(\hat{N}_0\)를 이용해 표현한다:
+여기서 condensate annihilation operator $$\hat{a}_\phi$$를 *condensate phase operator* $$\hat{A}_\phi$$와 condensate number operator $$\hat{N}_0$$를 이용해 표현한다:
 
 $$ \hat{a}_\phi = \hat{A}_\phi\hat{N}_0^{1/2}$$
 
