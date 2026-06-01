@@ -42,4 +42,8 @@ $$ \hat{\Psi}(\vec{r}) = \phi(\vec{r})\hat{a}_\phi+\hat{\psi}(\vec{r}). $$
 $$ \hat{a}_\phi = \hat{A}_\phi\hat{N}_0^{1/2}$$
 
 condensate phase operator는 **거의 unitary**이다:
-$$ \hat{A}_\phi^\dagger\hat{A}_\phi = \hat{A}_\phi^\dagger\hat{A}_\phi + |0\rangle\langle0| = Id $$
+$$ \hat{A}_\phi^\dagger\hat{A}_\phi + |0\rangle\langle0| = \hat{A}_\phi^\dagger\hat{A}_\phi  = Id $$
+그리고 이는 noncondensate $$\hat{\psi}$$와도 commute.
+GP Hamiltonian은
+
+$$ H_{\rm GP} = -\frac{\hbar^2}{2m}\nabla^2+U+gN|\phi|^2-\mu $$
