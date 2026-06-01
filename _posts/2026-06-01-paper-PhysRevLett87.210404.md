@@ -42,7 +42,7 @@ $$ \hat{\Psi}(\vec{r}) = \phi(\vec{r})\hat{a}_\phi+\hat{\psi}(\vec{r}). $$
 $$ \hat{a}_\phi = \hat{A}_\phi\hat{N}_0^{1/2}$$
 
 condensate phase operator는 **거의 unitary**이다:
-$$ \hat{A}_\phi^\dagger\hat{A}_\phi + |0\rangle\langle0| = \hat{A}_\phi^\dagger\hat{A}_\phi  = \mathds{1} $$
+$$ \hat{A}_\phi^\dagger\hat{A}_\phi + |0\rangle\langle0| = \hat{A}_\phi^\dagger\hat{A}_\phi  = \mathbb{1} $$
 그리고 이는 noncondensate $$\hat{\psi}$$와도 commute.
 
 총 입자수가 보존되려면 condensate가 하나 늘어나면 noncondensate가 하나 줄어들어야 한다. 따라서, $$\Lambda = \hat{A}_\phi^\dagger\hat{\psi}$$를 가지고 이야기한다. 
@@ -52,7 +52,7 @@ zeroth order에서 나오는 GP Hamiltonian은
 $$ H_{\rm GP} = -\frac{\hbar^2}{2m}\nabla^2+U+gN|\phi|^2-\mu $$
 
 quadratic Hamiltonian은
-$$ ㅗ
+$$ \hat{H}_{\rm quad} = \int \ud^3\vec{r} \frac{1}{2} \mathbb{\Lambda}\mathcal{L}\mathbb{\Lambda} $$
 
 
 
