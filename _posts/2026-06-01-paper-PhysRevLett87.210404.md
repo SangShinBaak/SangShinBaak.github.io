@@ -3,7 +3,6 @@ layout: post
 title: "[논문 리뷰](Reading) Classical-Field Method for Time Dependent Bose-Einstein Condensed Gases (2001)"
 date: 2026-06-01 14:00:00 +0900
 math: true
-math_engine: mathjax
 description: TWA와 관련된 논문을 읽는중입니다.
 tags: [Truncated Wigner Approximation, BEC, NCB, Thermal Equilibrium]
 categories: papers
