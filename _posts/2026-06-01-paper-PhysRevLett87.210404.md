@@ -52,9 +52,13 @@ zeroth order에서 나오는 GP Hamiltonian은
 $$ H_{\rm GP} = -\frac{\hbar^2}{2m}\nabla^2+U+gN|\phi|^2-\mu $$
 
 quadratic Hamiltonian은
-$$ \hat{H}_{\rm quad} = \int \ud^3\vec{r} \frac{1}{2} \mathbb{\Lambda}\mathcal{L}\mathbb{\Lambda} $$
 
+$$ \hat{H}_{\rm quad} = \int \mathrm{d}^3\vec{r} \frac{1}{2} \mathbb{\Lambda}\mathcal{L}\mathbb{\Lambda} $$
 
+여기서
+
+$$ \mathcal{L} = \begin{matrix} H_{\rm GP}+ QgN|\phi|^2Q & QgN\phi^2Q^* \\ -Q^*gN\phi^{*2}Q & -(H_{\rm GP}+ QgN|\phi|^2Q)^* \end{matrix} $$
 
 ## 개인 메모
 사실 $$\hat{A}$$를 phase operator로 가정하면 문제가 있다. 대표적으로 위에서 $$\Lambda$$ 에서 condensate를 하나 줄이려면 commute 하면 안된다.
+
