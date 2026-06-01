@@ -5,7 +5,7 @@ date: 2026-05-30 14:00:00 +0900
 description: TWA와 관련된 논문을 읽는중입니다.
 tags: [Truncated Wigner Approximation, condensed-matter, Stochastic]
 categories: papers
-related_posts: false
+related_posts: true
 toc:
   sidebar: left
 ---
