@@ -44,6 +44,13 @@ $$ \hat{a}_\phi = \hat{A}_\phi\hat{N}_0^{1/2}$$
 condensate phase operator는 **거의 unitary**이다:
 $$ \hat{A}_\phi^\dagger\hat{A}_\phi + |0\rangle\langle0| = \hat{A}_\phi^\dagger\hat{A}_\phi  = Id $$
 그리고 이는 noncondensate $$\hat{\psi}$$와도 commute.
+
 GP Hamiltonian은
 
 $$ H_{\rm GP} = -\frac{\hbar^2}{2m}\nabla^2+U+gN|\phi|^2-\mu $$
+
+총 입자수가 보존되려면 condensate가 하나 늘어나면 noncondensate가 하나 줄어들어야 한다. 따라서, $$\Lambda = \hat{A}_\phi^\dagger\hat{\psi}$$를 가지고 이야기한다. 
+
+
+## 개인 메모
+사실 $$\hat{A}$$를 phase operator로 가정하면 문제가 있다. 대표적으로 위에서 $$\Lambda$$ 에서 condensate를 하나 줄이려면 commute 하면 안된다.
