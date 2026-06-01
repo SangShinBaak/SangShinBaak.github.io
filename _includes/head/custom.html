@@ -5,10 +5,18 @@
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       tags: 'ams',
-      processEscapes: true
+      processEscapes: true,
+      packages: {'[+]': ['physics', 'boldsymbol', 'cancel', 'color', 'braket']},
+      macros: {
+        mathds: ['\\mathbb{#1}', 1],   // dsfont 대체: \mathds{R} → ℝ
+        bm: ['\\boldsymbol{#1}', 1],   // \bm{v} → 굵은 벡터
+      }
     },
     options: {
       skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    },
+    loader: {
+      load: ['[tex]/physics', '[tex]/boldsymbol', '[tex]/cancel', '[tex]/color', '[tex]/braket']
     }
   };
 </script>
