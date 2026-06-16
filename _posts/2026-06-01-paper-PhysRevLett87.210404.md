@@ -29,6 +29,11 @@ toc:
  - *time-independent*인 경우에는 NCB와 완전히 동등.
  - *time-dependent*인 경우에는 Bogoliubov approach와는 다르게, classical field evolution이 condensate 및 noncondensate 모두 *nonlinear*하기 때문에, 더 긴 시간동안 적용 가능하다.
 
+특징:
+ - large occupation number를 가진 modes에서는 quantum noise가 initial state의 classical noise로 잘 대응되기 때문에 Wigner representation이 가장 잘 맞음.
+ - 그리고 심지어, small occupation number modes라도, Hamiltonian이 quadratic approximation으로 잘 근사되면 유효하다.
+
+---
 ## 논문 내용
 ### NCB
 #### Field operator를 condensate와 orthogonal part로 쪼개기
@@ -56,8 +61,33 @@ $$ \hat{H}_{\rm quad} = \int \mathrm{d}^3\vec{r} \frac{1}{2} \mathbb{\Lambda}\ma
 
 여기서
 
-$$ \mathcal{L} = \begin{matrix} H_{\rm GP}+ QgN|\phi|^2Q & QgN\phi^2Q^* \\ -Q^*gN\phi^{*2}Q & -(H_{\rm GP}+ QgN|\phi|^2Q)^* \end{matrix} $$
+$$ \mathcal{L} = \begin{pmatrix} H_{\rm GP}+ QgN|\phi|^2Q & QgN\phi^2Q^* \\ -Q^*gN\phi^{*2}Q & -(H_{\rm GP}+ QgN|\phi|^2Q)^* \end{pmatrix} $$
 
+$$ Q = \mathbb{1}-|\phi\rangle\langle\phi|$$는 projection operator이다.  
+
+### Wigner Distribution
+Wigner function은 density operator의 Wigner-Weyl representation이니까 먼저 density operator를 정한다.
+$$t=0$$에서 thermal equailibrium이니까, 이때 density operator는
+
+$$\hat{sigma}(t=0) \simeq \frac{1}{Z}\exp\Big[-\beta\hat{H}_{\rm quad}\Big]. $$
+
+여기서는 characteristic function을 계산하고, 그것의 Fourier transform을 통해 Wigner function을 계산한다.
+
+$$ 
+\begin{aligned}
+    \chi(\gamma) &= \tr[\hat{\sigma}\exp[\int\gamma\hat{\Psi}^\dagger-\gamma^*\hat{\Psi}]]\\
+    &= = \frac{1}{2}\langle \{\mathrm{e}^{\gamma_\parallel\hat{N}_0^{1/2}-\mathrm{H.c}},\mathrm{e}^{\int\gamma_\bot\hat{\Lambda}^\dagger\hat{A}_\phi}^\dagger-\mathrm{H.c.}\}.
+\end{aligned}
+$$
+
+이때, $$\{\,,\,\}$$s는 anticommutator.
+
+$$\hat{A}_\phi$$와 $$\chi$$ 안의 다른 operator 들이 commute하도록 해주면, $$U(1)$$-symmetry를 보존하는 형태로 Wigner function을 얻을 수 있다:
+
+$$ W(\Psi) \simeq \int_0^{2\pi}\frac{\mathrm{d}\theta}{2\pi} W_0(\Psi \mathrm{e}^{i\theta})
+
+---
 ## 개인 메모
-사실 $$\hat{A}$$를 phase operator로 가정하면 문제가 있다. 대표적으로 위에서 $$\Lambda$$ 에서 condensate를 하나 줄이려면 commute 하면 안된다.
+$$\hat{A}$$를 phase operator로 가정하면 찝찝한 점이 있다. 대표적으로 위에서 $$\Lambda$$ 에서 condensate를 하나 줄이려면 commute 하면 안된다.
 
+$$Q$$는 Hermitian 이기 때문에, $$H_{\rm quad}$$는 $$\sigma_3$$-pseudo-Hermitian이다. ($$\sigma_3$$는 늘 사용하는 Pauli operator.) 
